@@ -7,9 +7,9 @@ class Player
     while true
       puts"数字を入力してください"
       puts"[0]グー、[1]チョキ、[2]パー"
-      janken_hand=gets.to_i
-      if janken_hand<=2&&janken_hand>=0
-        return janken_hand
+       janken_hand=gets.chomp
+      if janken_hand<="2"&&janken_hand>="0"
+        return janken_hand.to_i
       else
         puts "1-3を入力してください"
       end
@@ -41,10 +41,10 @@ class Janken
       result=(player_hand-enemy_hand+3)%3
       if result==2
         puts"あなたの勝ちです"
-        return false
+        return exit
       elsif result==1
         puts "あなたの負けです"
-        return false
+        return exit
       else
         puts"あいこです"
         return true
